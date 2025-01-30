@@ -10,7 +10,7 @@ module.exports = {
   api: {
     url: `${process.env.MATRICULA_RIO_API}`,
     payload: {
-      idBairro: 144, // Campo Grande
+      idBairro: `${process.env.YOUR_DISTRICT}`,
       idSerie: 10,
       tipoVaga: 2, 
       GEO: 0, 
@@ -18,7 +18,7 @@ module.exports = {
       sexo: 1, // 1 - Masculino, 2 - Feminino
       Id_Tipo_Aluno: 1,
       transf: true,
-      matricula: process.env.MATRICULA,
+      matricula: process.env.YOUR_REGISTRATION_NUMBER,
     },
   },
   targetSchools: process.env.TARGET_SCHOOLS,
