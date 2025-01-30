@@ -39,7 +39,13 @@ async function checkSchools() {
   console.log("[STARTING] Monitoring schools...");
   while (true) {
     await checkSchools();
-    console.log("[WAITING] Checking again in 3 minutes...");
+    
+    const currentTime = new Date();
+    currentTime.setMinutes(currentTime.getMinutes() + 3);
+    
+    const futureTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    console.log(`[WAITING] Checking again in 3 minutes... at ${futureTime}`);
+    
     await new Promise((resolve) => setTimeout(resolve, 180000));
   }
 })();
