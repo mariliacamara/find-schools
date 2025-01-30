@@ -12,10 +12,10 @@ module.exports = {
     payload: {
       idBairro: 144, // Campo Grande
       idSerie: 10,
-      tipoVaga: 2,
-      GEO: 0,
-      GUID: process.env.GUID,
-      sexo: 1,
+      tipoVaga: 2, 
+      GEO: 0, 
+      GUID: process.env.GUID, 
+      sexo: 1, // 1 - Masculino, 2 - Feminino
       Id_Tipo_Aluno: 1,
       transf: true,
       matricula: process.env.MATRICULA,

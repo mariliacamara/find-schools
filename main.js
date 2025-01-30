@@ -24,6 +24,14 @@ async function checkSchools() {
     });
 
     const schools = response.data.escolas;
+
+    const simplifiedSchools = schools.map(school => ({
+        ID: school.Id,
+        NOME: school.Nome,
+        BAIRRO: school.Bairro
+    }));
+    console.table(simplifiedSchools);
+    
     for (const school of schools) {
       if (config.targetSchools.includes(school.Nome)) {
         await sendWhatsAppMessage(school.Nome);
@@ -41,11 +49,8 @@ async function checkSchools() {
     await checkSchools();
     
     const currentTime = new Date();
-    currentTime.setMinutes(currentTime.getMinutes() + 3);
+    console.log(`[WAITING] ${currentTime} Checking again in 1 minutes...`);
     
-    const futureTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    console.log(`[WAITING] Checking again in 3 minutes... at ${futureTime}`);
-    
-    await new Promise((resolve) => setTimeout(resolve, 180000));
+    await new Promise((resolve) => setTimeout(resolve, 60000));
   }
 })();
